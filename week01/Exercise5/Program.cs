@@ -10,7 +10,7 @@ class Program
         int favoriteNumber = PromptUserNumber();
         int square = SquareNumber(favoriteNumber);
         DisplayResult(userName, square);
-        
+
     }
 
     static void DisplayWelcome()
@@ -28,7 +28,7 @@ class Program
 
     static int PromptUserNumber()
     { 
-        Console.WriteLine("Please enter your favorite number: ");
+        Console.Write("Please enter your favorite number: ");
         string userNumber = Console.ReadLine();
         int favoriteNumber = int.Parse(userNumber);
 
