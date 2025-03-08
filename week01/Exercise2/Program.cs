@@ -39,7 +39,7 @@ class Program
         }
         else
         {
-            Console.WriteLine($"You failed, Better luck next time!.");
+            Console.WriteLine($"You failed to pass the course, Better luck next time!.");
         }
     }
 }
