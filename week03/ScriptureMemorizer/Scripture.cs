@@ -11,8 +11,8 @@ public class Scripture
         _reference = reference;
         _words = new List<Word>();
 
-        string[] parts = text.Split(' ');
-        foreach (string word in parts)
+        string[] scriptureParts = text.Split(' ');
+        foreach (string word in scriptureParts)
         {
             _words.Add(new Word(word));
         }
