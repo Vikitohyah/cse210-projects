@@ -1,60 +1,36 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class Scripture
 {
-    private Reference _reference;
     private List<Word> _words;
+    public Reference Reference { get; }
 
     public Scripture(Reference reference, string text)
     {
-        _reference = reference;
-        _words = new List<Word>();
-
-        string[] scriptureParts = text.Split(' ');
-        foreach (string word in scriptureParts)
-        {
-            _words.Add(new Word(word));
-        }
+        Reference = reference;
+        _words = text.Split(' ').Select(w => new Word(w)).ToList();
     }
 
-    public void HideRandomWords(int numberToHide)
+    public void HideRandomWord()
     {
-        Random rand = new Random();
-        int hiddenCount = 0;
-
-        while (hiddenCount < numberToHide)
+        var visibleWords = _words.Where(w => !w.IsHidden).ToList();
+        if (visibleWords.Count > 0)
         {
-            int index = rand.Next(_words.Count);
-            if (!_words[index].IsHidden())
-            {
-                _words[index].Hide();
-                hiddenCount++;
-            }
+            Random rand = new Random();
+            visibleWords[rand.Next(visibleWords.Count)].Hide();
         }
-    }
-
-    public string GetDisplayText()
-    {
-        string result = _reference.GetDisplayText() + " ";
-
-        foreach (Word word in _words)
-        {
-            result += word.GetDisplayText() + " ";
-        }
-
-        return result.Trim();
     }
 
     public bool IsCompletelyHidden()
     {
-        foreach (Word word in _words)
-        {
-            if (!word.IsHidden())
-            {
-                return false;
-            }
-        }
-        return true;
+        return _words.All(w => w.IsHidden);
+    }
+
+    public string Display()
+    {
+        var wordDisplay = string.Join(" ", _words.Select(w => w.ToString()));
+        return $"{Reference.GetFormatted()} ::: {wordDisplay}";
     }
 }

@@ -4,30 +4,47 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Example Scripture
-        Reference reference = new Reference("Moroni", 10, 4, 5);
-        string text = "And when ye shall receive these things, I would exhort you that ye would ask God, the Eternal Father, in the name of Christ, if these things are not true; and if ye shall ask with a sincere heart, with real intent, having faith in Christ, he will manifest the truth of it unto you, by the power of the Holy Ghost. And by the power of the Holy Ghost ye may know the truth of all things.";
-        Scripture scripture = new Scripture(reference, text);
+        var library = new ScriptureLibrary();
+
+        // 📘 Book of Mormon & D&C Scripture Mastery
+        library.AddScripture(new Reference("1 Nephi", 3, 7),
+            "I will go and do the things which the Lord hath commanded...");
+        library.AddScripture(new Reference("Mosiah", 2, 17),
+            "When ye are in the service of your fellow beings ye are only in the service of your God.");
+        library.AddScripture(new Reference("Alma", 37, 6),
+            "By small and simple things are great things brought to pass.");
+        library.AddScripture(new Reference("Ether", 12, 27),
+            "And if men come unto me I will show unto them their weakness.");
+        library.AddScripture(new Reference("Doctrine and Covenants", 18, 10),
+            "Remember the worth of souls is great in the sight of God.");
+        library.AddScripture(new Reference("Doctrine and Covenants", 58, 26),
+            "For behold, it is not meet that I should command in all things...");
+
+        var scripture = library.GetRandomScripture();
+        if (scripture == null)
+        {
+            Console.WriteLine("No scriptures available.");
+            return;
+        }
 
         while (!scripture.IsCompletelyHidden())
         {
             Console.Clear();
-            Console.WriteLine(scripture.GetDisplayText());
-            Console.WriteLine("Press Enter to hide more words or type 'quit' to exit.");
-            string Prompt = Console.ReadLine();
+            Console.WriteLine("Scripture Mastery:");
+            Console.WriteLine(scripture.Display());
+            Console.WriteLine("Press Enter to continue or type 'quit' to exit.");
+            string input = Console.ReadLine();
 
-            if (Prompt.ToLower() == "quit")
+            if (input.ToLower() == "quit")
             {
                 break;
             }
 
-            scripture.HideRandomWords(3);
+            scripture.HideRandomWord();
         }
 
-        Console.Clear();
-        Console.WriteLine("Scripture Mastery:");
-        Console.WriteLine(scripture.GetDisplayText());
         Console.WriteLine("All the words are hidden and You've Exited Successfully!");
+        Console.WriteLine("Press Enter to Exit.");
+        Console.ReadLine();
     }
 }
-
