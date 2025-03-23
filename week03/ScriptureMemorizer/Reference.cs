@@ -2,21 +2,38 @@ public class Reference
 {
     private string _book;
     private int _chapter;
-    private int _startVerse;
+    private int _verse;
     private int _endVerse;
+    private bool _hasRange;
 
-    public Reference(string book, int chapter, int startVerse, int endVerse = -1)
+    // Constructor for a single verse
+    public Reference(string book, int chapter, int verse)
     {
         _book = book;
         _chapter = chapter;
-        _startVerse = startVerse;
-        _endVerse = endVerse == -1 ? startVerse : endVerse;
+        _verse = verse;
+        _hasRange = false;
+    }
+
+    // Constructor for a verse range
+    public Reference(string book, int chapter, int verse, int endVerse)
+    {
+        _book = book;
+        _chapter = chapter;
+        _verse = verse;
+        _endVerse = endVerse;
+        _hasRange = true;
     }
 
     public string GetFormatted()
     {
-        return _startVerse == _endVerse
-            ? $"{_book} {_chapter}:{_startVerse}"
-            : $"{_book} {_chapter}:{_startVerse}-{_endVerse}";
+        if (_hasRange)
+        {
+            return $"{_book} {_chapter}:{_verse}-{_endVerse}";
+        }
+        else
+        {
+            return $"{_book} {_chapter}:{_verse}";
+        }
     }
 }
