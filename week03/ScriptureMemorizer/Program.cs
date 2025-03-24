@@ -51,7 +51,7 @@ class Program
             scripture.HideRandomWord();
         }
 
-        Console.WriteLine("All the words are hidden and You've Exited Successfully!");
+        Console.WriteLine("You've Exited Successfully!");
         Console.ReadLine();
     }
 }
