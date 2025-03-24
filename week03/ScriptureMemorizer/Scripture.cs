@@ -28,9 +28,9 @@ public class Scripture
         return _words.All(w => w.IsHidden);
     }
 
-    public string Display()
+    public string DisplayScripture()
     {
         var wordDisplay = string.Join(" ", _words.Select(w => w.ToString()));
-        return $"{Reference.GetFormatted()} ::: {wordDisplay}";
+        return $"{Reference.GetDisplayText()} ::: {wordDisplay}";
     }
 }

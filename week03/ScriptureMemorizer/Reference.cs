@@ -15,7 +15,7 @@ public class Reference
         _hasRange = false;
     }
 
-    // Constructor for a verse range
+    // Constructor for a verse range ((end verse)
     public Reference(string book, int chapter, int verse, int endVerse)
     {
         _book = book;
@@ -25,7 +25,7 @@ public class Reference
         _hasRange = true;
     }
 
-    public string GetFormatted()
+    public string GetDisplayText()
     {
         if (_hasRange)
         {

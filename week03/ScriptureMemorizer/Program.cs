@@ -6,7 +6,7 @@ class Program
     {
         var library = new ScriptureLibrary();
 
-        // 📘 Book of Mormon & D&C Scripture Mastery
+        // Scripture Mastery
         library.AddScripture(new Reference("Matthew", 5, 14, 16),
             "Ye are the light of the world. A city that is set on an hill cannot be hid. Neither do men light a candle, and put it under a bushel, but on a candlestick; and it giveth light unto all that are in the house. Let your light so shine before men, that they may see your good works, and glorify your Father which is in heaven.");
         library.AddScripture(new Reference("James", 1, 5, 6),
@@ -39,7 +39,7 @@ class Program
         {
             Console.Clear();
             Console.WriteLine("Scripture Mastery:");
-            Console.WriteLine(scripture.Display());
+            Console.WriteLine(scripture.DisplayScripture());
             Console.WriteLine("Press Enter to continue or type 'quit' to exit.");
             string input = Console.ReadLine();
 
