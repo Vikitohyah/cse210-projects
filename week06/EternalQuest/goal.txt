@@ -1,0 +1,4 @@
+750
+SimpleGoal|  Give a talk  |  Speak at sacrament meetings when asked  | 100 | True
+EternalGoal|  Study the scriptures  |  Study the scriptures daily for at least 15 minutes  | 50
+ChecklistGoal|Attend temple|Attend the temple and perform ordinances|50|3|500|3

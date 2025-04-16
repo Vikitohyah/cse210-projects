@@ -8,7 +8,7 @@ public class GoalManager
         bool running = true;
         while (running)
         {
-            Console.WriteLine($"\nYour have {_score} points");
+            Console.WriteLine($"\nYou have {_score} points");
             
             Console.WriteLine("Menu Options:");
             Console.WriteLine("1. Create New Goal");
