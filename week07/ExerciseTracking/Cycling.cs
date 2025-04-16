@@ -1,4 +1,4 @@
-public class Cycling : Exercise
+public class Cycling : Activity
 {
     private double _speed; // kph
 

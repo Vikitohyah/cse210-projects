@@ -1,9 +1,9 @@
-public abstract class Exercise
+public abstract class Activity
 {
     private DateTime _date;
     private int _minutes;
 
-    public Exercise (DateTime date, int minutes)
+    public Activity (DateTime date, int minutes)
     {
         _date = date;
         _minutes = minutes;
@@ -21,7 +21,7 @@ public abstract class Exercise
 
     public abstract double GetDistance(); // km
     public abstract double GetSpeed();    // kph
-    public abstract double GetPace();     // min per km
+    public abstract double GetPace();     // min
 
     public virtual string GetSummary()
     {

@@ -1,4 +1,4 @@
-public class Running : Exercise
+public class Running : Activity
 {
     private double _distance;
 
